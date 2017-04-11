@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/simple-calendar.css">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Simple-calendar by Lixucheng</title>
+    <script type="text/javascript" src="javascripts/jquery-3.1.1.js"> </script>
+    <style>
+
+      .clearfix{
+        margin-bottom: 50px !important;
+      }
+    </style>
+  </head>
+
+  <body>
+
+  <div class="inner clearfix">
+      <div id = 'calendar'>
+
+      </div>
+    </div>
+
+
+    <script type="text/javascript" src="javascripts/simple-calendar.js"></script>
+    <script>
+     var myCalendar = new SimpleCalendar('#calendar');
+     //点击某一格，获取日期
+  
+		$(function() {
+		
+		    $(".sc-item").click(function() { //天数格添加点击事件。
+		    	
+		    	$(this).css('background','gold')
+		    	
+		        var year = $(".sc-select-year").val(); //获取当前选择年份。
+		        var month = $(".sc-select-month").val(); //获取当前选择月份。
+		        var day = $(this).children(".day").html(); //获取当前选择天数。
+		        var date = year + "-" + month + "-" + day;
+		        alert(date); //弹框展示。
+		    });
+		});
+    </script>
+
+
+  </body>
+</html>
