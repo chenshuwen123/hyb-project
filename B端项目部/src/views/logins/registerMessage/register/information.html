@@ -1,0 +1,136 @@
+<style>
+	.chooseColor {
+		background: #579ce9;
+		border-radius: 5px;
+		color:#fff;
+	}
+
+</style>
+<div>
+	<hello>	
+		<div class='person'>
+		    <div class="step_group">
+		    	<div class="step_one">
+		    		<span class="step_one_blue"></span>
+		    		<p class="circle"></p>
+		    		<p class="line"></p>
+		    		<h3>注册</h3>
+		    	</div>
+		    	<div class="step_two">
+		    		<span class="step_two_blue"></span>
+		    		<p class="circle"></p>
+		    		<p class="line gray_line"></p>
+		    		<h3>企业信息</h3>
+		    	</div>
+		    	<div class="step_three">
+		    		<span class="step_three_gray"></span>
+		    		<p class="circle gray_circle"></p>
+		    		<h3 class="gray_h3">联系人信息</h3>
+		    	</div>
+		    </div>
+			<form action="" class='form-control' ng-controller='companys'>
+				<div class="company_pop">
+					<div class="company_group">
+						<label for="company_name">公司全称</label>
+						<input type="text" 
+							   placeholder="请输入公司名称全称（确定后不可更改）" 
+							   id='company_name' 
+							   class="company_name"
+							   ng-model='companys.full_name'
+							   ng-class="companyAllColor ? 'red':'color'"
+							   ng-focus='companyAllFocus()'
+							   />
+						<span class="tip">{{companysError}}</span>
+					</div>
+					<div class="com_group">
+						<label for="com_name">公司简称</label>
+						<input type="text" 
+							   placeholder="请输入企业简称" 
+							   class="com_name" 
+							   ng-model='companys.short_name'
+							   ng-class="companyColor ? 'red':'color'"
+							   ng-focus='companyFocus()'
+							   />
+						<span class="tip">{{companyError}}</span>
+					</div>
+					<div class="industry_group">
+						<label for="industry_pop">所在行业</label>
+						<input type="text" 
+							   placeholder="请选择（确认后不可更改）" 
+							   id='industry_pop' 
+							   class="industry_pop" 
+							   ng-model='companys.industry_type'
+							   ng-readonly='true'
+							   ng-class="IndustryColor ? 'red':'color'"
+							   ng-click='toggleS()'
+							   />
+							   
+					<!--公司所在行业选择框-->
+					<em ng-class="check ? 'arrow_up' :'arrow' "></em>					
+					<div class="industry_type" ng-if='toggleMessage'>
+						<h3>请选择</h3>
+						<ul>
+							<li ng-repeat='(index,item) in json track by $index'>
+								<span ng-click='chooseItem(item,index)' 
+									  ng-class="{{index}}==indexs ? 'chooseColor' :'uncolor'">{{item}}</span>
+							</li>
+						</ul>
+					</div>							   
+						<span class="tip"></span>
+					</div>
+					<div class="address_group">
+						<label for="address_pop">公司所在地</label>
+						<input type="text" 
+							   placeholder="请输入公司具体位置" 
+							   class="address_pop"
+							   ng-readonly='true'
+							   ng-model='companys.province'
+							   ng-class="companyAddress ? 'red':'color'"
+							   ng-click='toggle()'
+							   />
+						<!--公司城市选择框-->
+						<em ng-class="checkF ? 'arrow_up' :'arrow' "></em>					
+						<div class="city_type" ng-if='toggleM'>
+							<ul class="tab_group">
+								<li ng-class="{'active':focusIndex==0}" ng-click="focus(0)">热门</li>
+								<li ng-class="{'active':focusIndex==1}" ng-click="focus(1)">全国</li>
+							</ul>
+							<ul class="city_list" ng-show="focusIndex==0">
+								<li>
+									<dt>ABCDEF</dt>
+									<dd ng-click=cityClick('北京')>北京</dd>
+									<dd ng-click=cityClick('重庆')>重庆</dd>
+									<dd ng-click=cityClick('大连')>大连</dd>
+								</li>
+								<li>
+									<dt>GHIJKL</dt>
+									<dd>广州</dd>
+									<dd>杭州</dd>
+									<dd>合肥</dd>
+								</li>
+							</ul>
+							<ul class="city_list" ng-show="focusIndex==1">
+								<li>
+									<dt>ABCDEF</dt>
+									<dd>北京北京</dd>
+									<dd>重庆</dd>
+									<dd>大连</dd>
+								</li>
+								<li>
+									<dt>GHIJKL</dt>
+									<dd>广州</dd>
+									<dd class="active">杭州</dd>
+									<dd>合肥</dd>
+								</li>
+							</ul>
+						</div>													   
+						<span class="tip"></span>
+					</div>
+				</div>
+				<a href="javascript:;"  class="sure_btn" ng-click="companyClick()">确定</a>
+			</form>		    
+		</div>
+	</hello>
+	
+	
+</div>

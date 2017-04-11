@@ -1,0 +1,26 @@
+npm i -g bower
+  
+全局安装依赖管理工具 bower
+cd F:/data/my-project
+    
+切换到我的项目文件夹下
+bower init
+    
+初始化 bower.json 文件（yes/yes/no/yes）
+bower install --save angular#1.2
+    
+安装 angular 1.2 版本
+npm install init
+    初始化 package.json 文件
+npm install -g gulp
+   
+ 全局安装 gulp
+npm install gulp gulp-clean gulp-concat gulp-connect gulp-cssmin gulp-imagemin
+    
+gulp-less gulp-load-plugins gulp-uglify open --save-dev
+    项目单独安装 gulp 等插件
+
+
+1)必须写严格依赖注入要不压缩后会有问题
+2)控制器要写在模板的上一级要不控制器就会执行两遍
+3)token

@@ -1,0 +1,84 @@
+
+
+
+
+<div>
+	<hello>
+		<div class='person'  ng-controller='information'>
+		    <div class="step_group">
+		    	<div class="step_one">
+		    		<span class="step_one_blue"></span>
+		    		<p class="circle"></p>
+		    		<p class="line"></p>
+		    		<h3>注册</h3>
+		    	</div>
+		    	<div class="step_two">
+		    		<span class="step_two_blue"></span>
+		    		<p class="circle"></p>
+		    		<p class="line"></p>
+		    		<h3>企业信息</h3>
+		    	</div>
+		    	<div class="step_three">
+		    		<span class="step_three_blue"></span>
+		    		<p class="circle"></p>
+		    		<h3>联系人信息</h3>
+		    	</div>
+		    </div>
+			<form action="" class='form-control' >
+				
+				<div class="company_pop">
+					<div class="contact_group">
+						<label for="contact_name">联系人</label>
+						<input type="text" 
+							   placeholder="请选择" 
+							   id='contact_name' 
+							   class="contact_name" 
+							   ng-model='contact.linkman'
+							   ng-class="contactUserColor ? 'red' : 'color' "
+							   ng-focus='userFocus()'
+							   />
+						<form>
+							<span class="sex_choose">
+								<i ng-class='Mr ? "sexChange" : "sex"' ng-click='radioSex("1")'></i>								
+								<label for="male">先生</label>
+								<i ng-class='Mrs ? "sexChange" : "sex"' ng-click='radioSex("2")'></i>	
+								<label for="female" >女士</label>
+							</span>
+						</form>
+						<span class="tip">{{peopleError}}</span>
+					</div>
+					<div class="phone_group">
+						<label for="phone">手机号</label>
+						<input type="text" 
+							   placeholder="请输入手机号" 
+							   id='phone' 
+							   class="phone" 
+							   ng-model='contact.phone'
+							   ng-class="phoneNumber ? 'red' : 'color' "
+							   ng-focus='phoneFocus()'
+							   />
+						<a href="javascript:;" class="send_vali" >
+							
+							<input type="text" id='btn' ng-click='phoneCodes()'  placeholder='{{time}}' ng-disabled='f' readOnly/>
+						</a>
+						<span class="tip">{{phoneNumberError}}</span>
+					</div>
+					<div class="vali_group">
+						<label for="vali">验证码</label>
+						<input type="text" 
+							    placeholder="请输入手机验证码" 
+							    id='vali' 
+							    class="vali" 
+							    ng-model='contact.sms_code' 
+							    ng-class="phoneCode ? 'red' : 'color' "
+							    ng-focus='codeFocus()'
+							    />
+						<span class="tip">{{phoneCodeError}}</span>
+					</div>
+					<a href="javascript:;"  class="finish_btn" ng-click="messageClick()">完成</a>
+				</div>	
+				
+			</form>
+		</div>
+	</hello>
+</div>

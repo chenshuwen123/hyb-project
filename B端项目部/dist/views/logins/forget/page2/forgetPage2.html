@@ -1,0 +1,62 @@
+
+<style>
+	.code_phone{
+		color: red;
+	    position: absolute;
+	    left: 42%;
+	    top: 400px;
+	    letter-spacing: 13px;	
+	    }
+</style>
+
+<div  ng-controller='postCode'>
+	<forget>
+		
+	</forget>
+	<div class='person'>
+	    <div class="step_group">
+	    	<div class="step_one">
+	    		<span class="step_one_blue"></span>
+	    		<p class="circle"></p>
+	    		<p class="line"></p>
+	    		<h3>输入注册手机号码</h3>
+	    	</div>
+	    	<div class="step_two">
+	    		<span class="step_two_blue"></span>
+	    		<p class="circle"></p>
+	    		<p class="line gray_line"></p>
+	    		<h3>短信验证</h3>
+	    	</div>
+	    	<div class="step_three">
+	    		<span class="step_three_gray"></span>
+	    		<p class="circle gray_circle"></p>
+	    		<h3 class="gray_h3">重置密码</h3>
+	    	</div>
+	    </div>
+		<form action="" class='form-control'>
+			<div class="mes_vali">
+				<p>
+					验证码已发送到您的手机:<strong>{{number}}</strong>
+					<span>
+						<input type="text"  class='postCode' ng-click='phoneCodes()'  placeholder='{{postCode}}' ng-disabled='ff' readOnly/>
+					</span>
+				</p>
+				<div class="input_list">
+					<input type="text" ng-model='number1'/>
+					<input type="text" ng-model='number2'/>
+					<input type="text" ng-model='number3'/>
+					<input type="text" ng-model='number4'/>
+					<input type="text" ng-model='number5'/>
+					<input type="text" ng-model='number6'/>
+				</div>
+			</div>
+			<div class='code_phone'>
+				{{mess}}
+			</div>
+			<div class="btn_group">
+				<a href="javascript:;"  class="prev_btn"  ui-sref='forgetPassWorld'>上一步</a>
+				<a href="javascript:;"  class="next_btn"   ng-click='forgetNext()'>下一步</a>
+			</div>
+		</form>
+	</div>		
+</div>
